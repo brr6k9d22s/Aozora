@@ -4,15 +4,14 @@ My Japanese Learning OS.
 
 ## Version
 
-v0.1.0
+v0.1.1
 
-## Current modules
+## Update notes
 
-- ホーム
-- 文法
-- 単語
-- 日语语音播放
-- 文法详情弹层
+- 修复 iPad 横屏下仍像手机版的问题
+- 修复首页「空のことば」和「今日の道」重叠
+- 补充最近学习的语法内容
+- 保留单文件结构，方便 GitHub Pages 直接部署
 
 ## Design direction
 
