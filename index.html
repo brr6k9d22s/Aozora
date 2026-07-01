@@ -1,107 +1,19 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Aozora</title>
-<style>
-:root{--ink:#20344d;--soft:#6d849b;--blue:#5db7ff;--deep:#2f8fce;--line:rgba(110,170,215,.18);--glass:rgba(255,255,255,.78);--shadow:0 18px 48px rgba(38,112,172,.14)}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{margin:0;min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#aee2ff 0%,#e9f8ff 44%,#f8fcff 100%)}button{font:inherit;color:inherit}.app{width:min(460px,100%);min-height:100vh;margin:0 auto;position:relative;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.75) 52%,#f8fcff);overflow:hidden}.page{display:none;min-height:100vh;padding-bottom:108px}.page.active{display:block}.sky{height:500px;position:relative;padding:calc(env(safe-area-inset-top) + 22px) 22px 0;overflow:hidden}.sun{position:absolute;width:160px;height:160px;right:16px;top:220px;border-radius:50%;background:radial-gradient(circle,#fffdf0 0 34%,#ffe8a1 58%,rgba(255,232,161,0) 72%)}.cloud{position:absolute;background:rgba(255,255,255,.82);border-radius:999px;animation:cloud 28s ease-in-out infinite alternate}.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}.c1{width:178px;height:54px;right:-20px;top:108px}.c1:before{width:86px;height:86px;left:28px;top:-42px}.c1:after{width:98px;height:98px;right:18px;top:-54px}.c2{width:130px;height:42px;left:-42px;top:190px;opacity:.7;animation-duration:33s}.c2:before{width:64px;height:64px;left:20px;top:-30px}.c2:after{width:72px;height:72px;right:14px;top:-38px}.c3{width:230px;height:66px;left:72px;top:365px;opacity:.55;animation-duration:39s}.c3:before{width:96px;height:96px;left:38px;top:-48px}.c3:after{width:118px;height:118px;right:30px;top:-62px}@keyframes cloud{from{transform:translateX(-8px)}to{transform:translateX(18px)}}.topbar{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:900;letter-spacing:-.5px}.mark{width:44px;height:44px;border-radius:17px;display:grid;place-items:center;background:rgba(255,255,255,.65);box-shadow:0 10px 28px rgba(45,126,190,.12);backdrop-filter:blur(18px)}.date{padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.58);color:#4c85ad;font-size:13px;font-weight:850;backdrop-filter:blur(18px)}.hero{position:relative;z-index:2;margin-top:64px}.kicker{display:inline-block;padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.58);color:#3f8fc6;font-size:13px;font-weight:900}h1{margin:18px 0 12px;font-size:49px;line-height:1.02;letter-spacing:-2.2px}.hero p{margin:0;max-width:315px;color:#557994;font-size:16px;line-height:1.72}.quote{position:relative;z-index:3;margin-top:28px;padding:20px;border-radius:31px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.8);backdrop-filter:blur(22px);box-shadow:var(--shadow)}.label{color:#4c99cf;font-size:13px;font-weight:900;margin-bottom:10px}.quote-row{display:flex;align-items:center;justify-content:space-between;gap:14px}.jp{font-size:25px;line-height:1.34;font-weight:900;letter-spacing:-.5px}.cn{margin-top:8px;color:#6c8298;font-size:14px}.round{flex:0 0 auto;width:44px;height:44px;border:0;border-radius:999px;display:grid;place-items:center;color:var(--deep);background:#eff9ff;box-shadow:inset 0 0 0 1px rgba(81,162,220,.13),0 8px 20px rgba(60,135,195,.10)}.round:active,.pill:active,.nav button:active{transform:scale(.96)}.content{margin-top:-8px;padding:0 18px;position:relative;z-index:5}.card{margin-bottom:18px;padding:21px;border-radius:32px;background:var(--glass);border:1px solid rgba(255,255,255,.84);backdrop-filter:blur(22px);box-shadow:var(--shadow)}.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px}.card h2{margin:0;font-size:29px;letter-spacing:-1px}.sub{margin:5px 0 0;color:#8aa0b3;font-size:14px;line-height:1.5}.pill{border:0;padding:9px 12px;border-radius:999px;background:#eff9ff;color:var(--deep);font-size:12px;font-weight:900}.progress-meta{display:flex;justify-content:space-between;color:#7890a6;font-size:13px;font-weight:850;margin-bottom:9px}.track{height:8px;border-radius:999px;background:#e8f3fb;overflow:hidden;margin-bottom:16px}.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#98d7ff,#5cb6ff)}.task-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.task{padding:14px;border-radius:22px;background:rgba(248,252,255,.76);border:1px solid rgba(120,178,221,.14)}.task b{display:block;margin-bottom:5px;font-size:15px}.task span{font-size:12px;color:#7890a6;font-weight:750}.item{width:100%;border:0;background:transparent;display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:left;padding:15px 0;border-bottom:1px solid var(--line)}.item:last-child{border-bottom:0}.term{font-size:22px;font-weight:900;line-height:1.25;letter-spacing:-.4px}.kana{margin-top:4px;color:#4b9bd2;font-size:13px;font-weight:800}.mean{margin-top:5px;color:#667d93;font-size:14px;line-height:1.45}.tag{display:inline-flex;margin-top:9px;padding:5px 9px;border-radius:999px;background:#f1f9ff;color:#569acb;font-size:11px;font-weight:900}.word{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px;border-radius:24px;background:rgba(248,252,255,.76);border:1px solid rgba(116,174,220,.15);margin-bottom:11px}.kanji{font-size:24px;font-weight:950;letter-spacing:-.4px}.note{line-height:1.65;color:#5c7389;font-size:14px}.note b{display:block;color:#2f84bd;font-size:15px;margin-bottom:6px}.page-inner{padding:calc(env(safe-area-inset-top) + 30px) 18px 0}.back{border:0;display:inline-flex;padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.72);color:#348fcf;font-size:13px;font-weight:900}.page-title h2{margin:22px 0 8px;font-size:42px;letter-spacing:-1.8px}.page-title p{margin:0 0 22px;color:#6d849b;line-height:1.65}.group-title{color:#3f8fc6;font-size:17px;margin:24px 0 10px}.book{padding:18px;border-radius:28px;background:rgba(255,255,255,.76);border:1px solid rgba(255,255,255,.85);box-shadow:0 12px 36px rgba(42,116,176,.10);margin-bottom:12px}.example{margin-top:14px;padding:14px;border-radius:20px;background:#f4fbff}.example-jp{font-size:18px;font-weight:850;line-height:1.5}.example-cn{margin-top:6px;color:#71879d;font-size:14px}.point{margin-top:13px;color:#5f768c;line-height:1.65;font-size:14px}.nav{position:fixed;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(424px,calc(100% - 32px));z-index:30;display:flex;justify-content:space-around;padding:10px;border-radius:28px;background:rgba(255,255,255,.80);backdrop-filter:blur(24px);box-shadow:0 18px 50px rgba(42,116,176,.16);border:1px solid rgba(255,255,255,.78)}.nav button{border:0;background:transparent;display:flex;flex-direction:column;align-items:center;gap:4px;color:#8299ae;font-size:12px;font-weight:900}.nav button.active{color:var(--deep)}.modal{display:none;position:fixed;inset:0;z-index:50;background:rgba(32,52,77,.25);backdrop-filter:blur(5px);align-items:center;justify-content:center;padding:16px}.modal.show{display:flex}.modal-card{width:min(410px,100%);max-height:82vh;overflow:auto;position:relative;border-radius:34px;padding:28px;background:rgba(255,255,255,.94);box-shadow:0 30px 90px rgba(42,79,110,.30)}.close{position:absolute;right:16px;top:14px;width:38px;height:38px;border:0;border-radius:999px;background:#eff7fd;color:#638098;font-size:23px}.dialog-title{font-size:34px;font-weight:950;margin:4px 46px 6px 0;letter-spacing:-1.2px}.dialog-section{padding:17px 0;border-top:1px solid var(--line)}.dialog-section h3{margin:0 0 9px;color:#4c99cf;font-size:14px}.dialog-section p{margin:0;color:#60778d;line-height:1.72}.dialog-example{font-size:22px;font-weight:900;color:var(--ink)!important}@media(min-width:760px){body{padding:28px}.app{border-radius:40px;min-height:920px;box-shadow:0 34px 90px rgba(42,116,176,.18)}}
-@media(min-width:900px){
-  body{padding:0;background:linear-gradient(180deg,#b7e6ff 0%,#eaf8ff 42%,#f8fcff 100%)}
-  .app{
-    width:100%;
-    max-width:none;
-    min-height:100vh;
-    border-radius:0;
-    box-shadow:none;
-    display:block;
-  }
-  .sky{
-    height:430px;
-    padding:32px min(7vw,88px) 0;
-  }
-  .topbar{max-width:1180px;margin:0 auto}
-  .hero{
-    max-width:1180px;
-    margin:58px auto 0;
-    display:grid;
-    grid-template-columns:minmax(360px,520px) minmax(360px,520px);
-    gap:48px;
-    align-items:end;
-  }
-  h1{font-size:64px}
-  .hero p{font-size:18px;max-width:460px}
-  .quote{margin-top:0;align-self:end}
-  .content{
-    max-width:1180px;
-    margin:-38px auto 0;
-    padding:0 min(7vw,88px) 128px;
-    display:grid;
-    grid-template-columns:1.05fr .95fr;
-    gap:20px;
-    align-items:start;
-  }
-  .content .card:first-child{grid-column:1 / -1}
-  .task-grid{grid-template-columns:repeat(4,1fr)}
-  .card h2{font-size:32px}
-  .page-inner{
-    max-width:1180px;
-    margin:0 auto;
-    padding:48px min(7vw,88px) 128px;
-  }
-  #grammarGroups,#vocabGroups{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:18px;
-  }
-  #grammarGroups .group-title,#vocabGroups .group-title{grid-column:1 / -1}
-  .nav{
-    width:min(560px,calc(100% - 48px));
-  }
-}
-
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-</style>
-</head>
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aozora v1 Foundation</title>
+<link rel="stylesheet" href="css/style.css"></head>
 <body>
-<div class="app">
-<section id="home" class="page active">
-<header class="sky"><div class="sun"></div><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
-<div class="topbar"><div class="brand"><span class="mark">☁️</span><span>Aozora</span></div><div class="date" id="date">今日</div></div>
-<div class="hero"><span class="kicker">今日の空 · Day 042</span><h1>今日も、<br>一歩ずつ。</h1><p>青空の下で、今日も日本語を学ぼう。無理しないで、少しずつ進めばいい。</p>
-<div class="quote"><div class="label">空のことば</div><div class="quote-row"><div><div class="jp">少しずつ、上手になればいい。</div><div class="cn">一点一点变好就可以。</div></div><button class="round speak" data-text="少しずつ、上手になればいい。">▶</button></div></div>
-</div></header>
-<main class="content">
-<section class="card"><div class="card-head"><div><h2>今日の道</h2><p class="sub">今天不用很多，只要完成一点点。</p></div><span class="pill">63%</span></div><div class="task-grid"><div class="task"><b>文法 2つ</b><span>ことがあります</span></div><div class="task"><b>単語 3つ</b><span>予約・十分・慣れる</span></div><div class="task"><b>例文 音読</b><span>1 回跟读</span></div><div class="task"><b>復習</b><span>昨天的内容</span></div></div></section>
-<section class="card"><div class="card-head"><div><h2>文法</h2><p class="sub">最近勉強した N3 文法</p></div><button class="pill go" data-target="grammar">文法一覧 →</button></div><div class="progress-meta"><span>学習済み</span><span>20 / 120</span></div><div class="track"><div class="fill" style="width:17%"></div></div><div id="homeGrammar"></div></section>
-<section class="card"><div class="card-head"><div><h2>単語</h2><p class="sub">今日の単語 · 必ず覚える 3つ</p></div><button class="pill go" data-target="vocab">単語一覧 →</button></div><div class="progress-meta"><span>学習済み</span><span>36 / 900</span></div><div class="track"><div class="fill" style="width:4%"></div></div><div id="homeWords"></div></section>
-<section class="card note"><b>青空メモ</b>昨天学过的「けど」今天也会反复出现。看到它时，不要只翻译成“但是”，也要感受它在日常对话里的轻微转折感。</section>
-</main></section>
-<section id="grammar" class="page"><main class="page-inner"><div class="page-title"><button class="back go" data-target="home">← ホーム</button><h2>文法一覧</h2><p>按照「用处」整理 N3 文法。先理解它在句子里的功能，再记形式。</p></div><div id="grammarGroups"></div></main></section>
-<section id="vocab" class="page"><main class="page-inner"><div class="page-title"><button class="back go" data-target="home">← ホーム</button><h2>単語一覧</h2><p>按五十音整理。先记今天的 3 个，再慢慢扩展。</p></div><div id="vocabGroups"></div></main></section>
-<nav class="nav"><button class="active go" data-target="home">☁️<span>ホーム</span></button><button class="go" data-target="grammar">📘<span>文法</span></button><button class="go" data-target="vocab">🌱<span>単語</span></button><button>✨<span>記録</span></button></nav>
+<header class="hero">
+<div class="overlay">
+<h1>☁️ Aozora</h1>
+<p>今日の学び・Learn today, remember forever.</p>
 </div>
-<div class="modal" id="modal"><div class="modal-card"><button class="close" id="close">×</button><div id="modalBody"></div></div></div>
-<script>
-var grammar=[
-{p:"ことがあります",k:"ことがあります",m:"曾经……；表示过去有过某种经历",c:"経験",e:"日本へ行ったことがあります。",ec:"我曾经去过日本。",pt:"動詞た形 + ことがあります。用来表达“曾经做过某事”。"},
-{p:"ことがありますか",k:"ことがありますか",m:"你有过……的经历吗？",c:"経験",e:"日本料理を作ったことがありますか。",ec:"你做过日本料理吗？",pt:"这是「ことがあります」的疑问形式，用来询问对方是否有过某种经历。"},
-{p:"ほうがいいです",k:"ほうがいいです",m:"最好……；建议做某事",c:"アドバイス",e:"熱がある時は、無理をしないほうがいいです。",ec:"发烧的时候，最好不要勉强自己。",pt:"動詞た形 / ない形 + ほうがいいです。用于给出建议。"},
-{p:"けど",k:"けど",m:"但是；不过；虽然",c:"逆接",e:"難しいけど、おもしろいです。",ec:"虽然很难，但是很有意思。",pt:"用于连接两个有转折关系的句子，口语中非常常见。"},
-{p:"ようになる",k:"ようになる",m:"变得能够……；逐渐变成某种状态",c:"変化",e:"少しずつ日本語が分かるようになりました。",ec:"渐渐变得能听懂日语了。",pt:"可能形 / 辞書形 + ようになる。表示能力或习惯的变化。"},
-{p:"ために",k:"ために",m:"为了……",c:"目的",e:"日本へ行くために、日本語を勉強しています。",ec:"为了去日本，我正在学习日语。",pt:"名詞 + のために / 動詞辞書形 + ために。表示目的。"}
-];
-var words=[{kanji:"予約",kana:"よやく",meaning:"预约",row:"や"},{kanji:"十分",kana:"じゅうぶん",meaning:"充分；足够",row:"さ"},{kanji:"慣れる",kana:"なれる",meaning:"习惯",row:"な"},{kanji:"病院",kana:"びょういん",meaning:"医院",row:"は"},{kanji:"薬",kana:"くすり",meaning:"药",row:"か"},{kanji:"無理",kana:"むり",meaning:"勉强；不合理",row:"ま"},{kanji:"少しずつ",kana:"すこしずつ",meaning:"一点一点地",row:"さ"},{kanji:"上手",kana:"じょうず",meaning:"擅长；变好",row:"さ"}];
-function speak(t){if(!("speechSynthesis" in window)){alert("这个浏览器暂时不支持语音播放。");return}speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="ja-JP";u.rate=.82;u.pitch=1.04;speechSynthesis.speak(u)}
-function item(g,i){return '<button class="item detail" data-i="'+i+'"><div><div class="term">'+g.p+'</div><div class="kana">'+g.k+'</div><div class="mean">'+g.m+'</div><div class="tag">'+g.c+'</div></div><span class="round">›</span></button>'}
-function word(w){return '<div class="word"><div><div class="kanji">'+(w.kanji||w.kana)+'</div><div class="kana">'+w.kana+'</div><div class="mean">'+w.meaning+'</div></div><button class="round speak" data-text="'+w.kana+'">▶</button></div>'}
-function render(){document.getElementById("date").textContent=new Date().toLocaleDateString("ja-JP",{month:"long",day:"numeric",weekday:"long"});document.getElementById("homeGrammar").innerHTML=grammar.map(item).join("");document.getElementById("homeWords").innerHTML=words.slice(0,3).map(word).join("");var groups={};grammar.forEach(function(g,i){(groups[g.c]=groups[g.c]||[]).push({g:g,i:i})});var gh="";Object.keys(groups).forEach(function(c){gh+='<h3 class="group-title">'+c+'</h3>';groups[c].forEach(function(o){gh+='<article class="book"><div class="term">'+o.g.p+'</div><div class="kana">'+o.g.k+'</div><div class="mean">'+o.g.m+'</div><div class="example"><div class="example-jp">'+o.g.e+'</div><div class="example-cn">'+o.g.ec+'</div><button class="round speak" style="margin-top:10px" data-text="'+o.g.e+'">▶</button></div><div class="point">'+o.g.pt+'</div></article>'})});document.getElementById("grammarGroups").innerHTML=gh;var rows=["あ","か","さ","た","な","は","ま","や"],labels={"あ":"あ行","か":"か行","さ":"さ行","た":"た行","な":"な行","は":"は行","ま":"ま行","や":"や行"};var vh="";rows.forEach(function(r){var list=words.filter(function(w){return w.row===r});if(!list.length)return;vh+='<h3 class="group-title">'+labels[r]+'</h3>'+list.map(word).join("")});document.getElementById("vocabGroups").innerHTML=vh}
-function go(t){document.querySelectorAll(".page").forEach(function(p){p.classList.remove("active")});document.getElementById(t).classList.add("active");document.querySelectorAll(".nav button").forEach(function(b){b.classList.toggle("active",b.dataset.target===t)});window.scrollTo(0,0)}
-function openDetail(i){var g=grammar[i];document.getElementById("modalBody").innerHTML='<div class="dialog-title">'+g.p+'</div><div class="kana">'+g.k+'</div><section class="dialog-section"><h3>意味</h3><p>'+g.m+'</p></section><section class="dialog-section"><h3>例文</h3><p class="dialog-example">'+g.e+'</p><p>'+g.ec+'</p><div style="margin-top:12px"><button class="round speak" data-text="'+g.e+'">▶</button></div></section><section class="dialog-section"><h3>ポイント</h3><p>'+g.pt+'</p></section>';document.getElementById("modal").classList.add("show")}
-document.addEventListener("click",function(e){var s=e.target.closest(".speak");if(s){speak(s.dataset.text);return}var g=e.target.closest(".go");if(g){go(g.dataset.target);return}var d=e.target.closest(".detail");if(d){openDetail(d.dataset.i);return}});
-document.getElementById("close").onclick=function(){document.getElementById("modal").classList.remove("show")};
-document.getElementById("modal").onclick=function(e){if(e.target.id==="modal")document.getElementById("modal").classList.remove("show")};
-render();
-</script>
-</body></html>
+</header>
+<main class="container">
+<section class="card"><h2>📘 今日の文法</h2><div id="grammar"></div></section>
+<section class="card"><h2>🌱 今日の単語</h2>
+<ul><li>予約（よやく）—预约</li><li>病院（びょういん）—医院</li><li>慣れる（なれる）—习惯</li></ul></section>
+<section class="card"><h2>💡 今日のことば</h2>
+<p>疲（つか）れた時（とき）は、早（はや）く寝（ね）たほうがいいです。</p>
+<p>累的时候最好早点睡觉。</p></section>
+</main><script src="js/app.js"></script></body></html>

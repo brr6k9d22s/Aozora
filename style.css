@@ -1,0 +1,6 @@
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#eef7ff;color:#234}
+.hero{height:320px;background:linear-gradient(180deg,#76c9ff,#dff4ff);display:flex;align-items:center;justify-content:center}
+.overlay{text-align:center}
+.container{max-width:1100px;margin:-40px auto 40px;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.card{background:white;border-radius:22px;padding:22px;box-shadow:0 12px 30px rgba(0,0,0,.08)}
+.badge{display:inline-block;background:#dff4ff;padding:4px 10px;border-radius:999px}
