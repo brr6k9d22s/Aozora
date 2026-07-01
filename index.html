@@ -1,19 +1,86 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Aozora v1 Foundation</title>
-<link rel="stylesheet" href="css/style.css"></head>
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aozora</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
 <body>
-<header class="hero">
-<div class="overlay">
-<h1>☁️ Aozora</h1>
-<p>今日の学び・Learn today, remember forever.</p>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><span>☁️</span><b>Aozora</b></div>
+    <button class="nav active" data-view="home">今日</button>
+    <button class="nav" data-view="grammar">文法</button>
+    <button class="nav" data-view="review">復習</button>
+  </aside>
+
+  <main>
+    <section id="home" class="view active">
+      <section class="sky">
+        <div class="cloud c1"></div><div class="cloud c2"></div><div class="sun"></div>
+        <div class="heroText">
+          <p class="eyebrow">今日の空 · Build 001</p>
+          <h1>今日も、<br>一歩ずつ。</h1>
+          <p>ChatGPTで理解したことを、Aozoraで忘れない形に残す。</p>
+        </div>
+      </section>
+
+      <section class="dashboard">
+        <article class="glass today">
+          <div>
+            <p class="eyebrow">今日の学び</p>
+            <h2>学んだことを、使える知識へ。</h2>
+          </div>
+          <div class="stats">
+            <span><b>3</b> 文法</span><span><b>3</b> 単語</span><span><b>1</b> Review</span>
+          </div>
+        </article>
+
+        <article class="glass phrase">
+          <p class="eyebrow">今日のことば</p>
+          <h2>疲（つか）れた時（とき）は、早（はや）く寝（ね）たほうがいいです。</h2>
+          <p>累的时候，最好早点睡。</p>
+          <button class="speak" data-text="疲れた時は、早く寝たほうがいいです。">▶ 聞く</button>
+        </article>
+
+        <article class="glass">
+          <div class="head"><div><p class="eyebrow">最近の文法</p><h2>Grammar Cards</h2></div><button class="link" data-open="grammar">一覧へ</button></div>
+          <div id="recentGrammar" class="cards"></div>
+        </article>
+
+        <article class="glass">
+          <p class="eyebrow">今日の単語</p>
+          <div id="vocab" class="wordGrid"></div>
+        </article>
+      </section>
+    </section>
+
+    <section id="grammar" class="view">
+      <header class="pageHead">
+        <p class="eyebrow">Knowledge Foundation</p>
+        <h1>文法（ぶんぽう）</h1>
+        <p>意味だけでなく、接続・理由・間違い・つながりまで残す。</p>
+      </header>
+      <div id="grammarList" class="grammarLayout"></div>
+    </section>
+
+    <section id="review" class="view">
+      <header class="pageHead">
+        <p class="eyebrow">Review</p>
+        <h1>今日の復習（ふくしゅう）</h1>
+        <p>忘れそうなものを、先に拾う。</p>
+      </header>
+      <article class="glass reviewCard">
+        <h2>ほうがいいです</h2>
+        <p>理由：接続が Vた / Vない で変わるため、最優先で復習。</p>
+        <button class="link" data-card="G0001">開く</button>
+      </article>
+    </section>
+  </main>
 </div>
-</header>
-<main class="container">
-<section class="card"><h2>📘 今日の文法</h2><div id="grammar"></div></section>
-<section class="card"><h2>🌱 今日の単語</h2>
-<ul><li>予約（よやく）—预约</li><li>病院（びょういん）—医院</li><li>慣れる（なれる）—习惯</li></ul></section>
-<section class="card"><h2>💡 今日のことば</h2>
-<p>疲（つか）れた時（とき）は、早（はや）く寝（ね）たほうがいいです。</p>
-<p>累的时候最好早点睡觉。</p></section>
-</main><script src="js/app.js"></script></body></html>
+
+<div id="modal" class="modal"><div class="modalCard"><button id="close">×</button><div id="modalBody"></div></div></div>
+<script src="js/app.js"></script>
+</body>
+</html>
